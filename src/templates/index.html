@@ -5,6 +5,21 @@
 
 {% include 'parts/_header.html' %}
 
+<h1>Главная</h1>
+
+<section class="services">
+    <h2 class="services--h">
+        Услуги
+    </h2>
+    {% set items = ['Обучение', 'Консультация', 'Код ревью'] %}
+    <ul class="services--list list">
+    {% for item in items %}    
+        <li class="list--item">
+            {{ item }}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 
  
 {% include 'parts/_foot.html' %}
