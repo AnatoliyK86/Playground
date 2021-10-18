@@ -9,5 +9,27 @@
     Цены
 </h1>
 
+{% set nunjucks = [
+
+        ["Курсы", "60 дней", 20000],
+        ["Консультации", "1 час", 500],
+        ["Код ревью", "1 раз", 500]
+                
+    ] %}
+
+    <table border="1">
+        <tr>
+            <th>Услуга</th>
+            <th>Количество</th>
+            <th>Цена</th>
+        </tr>
+        {% for u, q, p in nunjucks %}
+        <tr>
+           <td>{{ u }}</td>
+           <td>{{ p }}</td>
+           <td>{{ q }}</td>
+        </tr> 
+        {% endfor %}   
+    </table>
 
 {% include 'parts/_foot.html' %}

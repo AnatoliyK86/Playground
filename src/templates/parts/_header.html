@@ -6,22 +6,37 @@
         set menuLinks = [
         {
             text: 'Main',
-            link: 'index.html'
+            link: 'index.html',
+            title: 'Main Page'
         },
         {
             text: 'Schedule',
-            link: 'schedule.html'
+            link: 'schedule.html',
+            title: 'Shedule'
         },
         {
             text: 'Prices',
-            link: 'prices.html'
+            link: 'prices.html',
+            title: 'Prices'
         }            
         ]
      %}
 
     {% for link in menuLinks %}
-    <a href="{{ link.link }}" class="nav--link">{{ link.text }}</a>
+         {% if link.title == title %}
+            <a href="{{ link.link }}" class="active">{{ link.text }}</a>
+        {% else%}
+            <a href="{{ link.link }}" class="nav--link">{{ link.text }}</a>
+        {% endif %}    
     {% endfor %}
+    
+
+   
+   
+  
+
+
+
 
 <!-- {% include 'parts/svgo/logo-ofpery.svg' %} -->
 </header>
