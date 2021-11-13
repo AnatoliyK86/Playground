@@ -1,22 +1,25 @@
-@columns: 12;
+@columns: 18;
 @atom: (100% / @columns);
 
 @break_lg: 1100px;
 @break_md: 960px;
 @break_sm: 780px;
 @break_xs: 560px;
+@break_xss: 350px;
 
-@offset: 20px;
+@offset: 25px;
 @offset_lg: @offset;
 @offset_md: @offset;
 @offset_sm: @offset;
 @offset_xs: @offset;
+@offset_xss: @offset;
 
 @offset_one_side: (@offset / 2);
 @offset_lg_one_side: (@offset_lg / 2);
 @offset_md_one_side: (@offset_md / 2);
 @offset_sm_one_side: (@offset_sm / 2);
 @offset_xs_one_side: (@offset_xs / 2);
+@offset_xss_one_side: (@offset_xss / 2);
 
 @fields: 30px;
 @fields_sm: 15px;
@@ -42,7 +45,7 @@
 }
 
 .wrapper(){
-    max-width: 1200px;
+    max-width: 1140px;
     margin: 0 auto;
     .wrapper-full();
 }
@@ -105,6 +108,11 @@
 .size-xs(@n){
     @val: 100% / @columns * @n;
     .xs(width, ~"calc(@{val} - @{offset_xs})");
+}
+
+.size-xss(@n){
+    @val: 100% / @columns * @n;
+    .xss(width, ~"calc(@{val} - @{offset_xss})");
 }
 
 .shift(@n){
@@ -267,6 +275,38 @@
     .xs(padding-right, ~"calc(@{val} + @{offset_xs_one_side})");
 }
 
+.shift-xss(@n){
+    @val: 100% / @columns * @n;
+    .xss(margin-left, ~"calc(@{val} + @{offset_xss_one_side})");
+    .xss(margin-right, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
+.shift-xss-left(@n){
+    @val: 100% / @columns * @n;
+    .xss(margin-left, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
+.shift-xss-right(@n){
+    @val: 100% / @columns * @n;
+    .xss(margin-right, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
+.shift-xss-padding(@n){
+    @val: 100% / @columns * @n;
+    .xss(padding-left, ~"calc(@{val} + @{offset_xss_one_side})");
+    .xss(padding-right, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
+.shift-xss-padding-left(@n){
+    @val: 100% / @columns * @n;
+    .xss(padding-left, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
+.shift-xss-padding-right(@n){
+    @val: 100% / @columns * @n;
+    .xss(padding-right, ~"calc(@{val} + @{offset_xss_one_side})");
+}
+
 .lg(@name, @value){
     @media screen and (max-width: @break_lg){
         @{name}: @value;
@@ -311,6 +351,18 @@
 
 .xs-block(@content){
     @media screen and (max-width: @break_xs){
+        @content();
+    }
+}
+
+.xss(@name, @value){
+    @media screen and (max-width: @break_xss){
+        @{name}: @value;
+    }
+}
+
+.xss-block(@content){
+    @media screen and (max-width: @break_xss){
         @content();
     }
 }
